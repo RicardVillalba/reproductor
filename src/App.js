@@ -35,6 +35,7 @@ function App() {
         audioRef={audioRef}
         isPlaying={isPlaying}
         setSongInfo={setSongInfo}
+        setSongs={setSongs}
       />
       <audio
         ref={audioRef}

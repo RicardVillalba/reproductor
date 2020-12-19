@@ -7,6 +7,7 @@ const LibrarySong = ({
   setCurrentSong,
   id,
   isPlaying,
+  setSongs,
 }) => {
   const songSelectHandler = () => {
     const selectedSong = songs.filter((state) => state.id === id);
@@ -19,9 +20,26 @@ const LibrarySong = ({
         });
       }
     }
+    const newSong = songs.map((song) => {
+      if (song.id === id) {
+        return {
+          ...song,
+          active: true,
+        };
+      } else {
+        return {
+          ...song,
+          active: false,
+        };
+      }
+    });
+    setSongs(newSong);
   };
   return (
-    <div onClick={songSelectHandler} className="librarySong">
+    <div
+      onClick={songSelectHandler}
+      className={`librarySong ${song.active ? "selected" : ""}`}
+    >
       <img src={song.cover} alt={song.name} />
       <div className="songDescription">
         <h3> {song.name} </h3>

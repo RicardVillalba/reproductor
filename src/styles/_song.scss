@@ -1,4 +1,3 @@
-
 .song-box {
   min-height: 60vh;
   display: flex;
@@ -19,3 +18,10 @@
   }
 }
 
+@media screen and (max-width: 768px) {
+  .song-box {
+    img {
+      width: 55%;
+    }
+  }
+}
